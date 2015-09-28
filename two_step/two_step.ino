@@ -43,6 +43,7 @@ void readRf(){
 
 
 void decodeMessage(char* message){
+  //Serial.println(message);
   char *next;
   long check = strtol(message, &next, 16);
   if(MESSAGE_CHECK != check) {
@@ -53,11 +54,7 @@ void decodeMessage(char* message){
   long left = strtol(next, &next, 16);
   long right = strtol(next, &next, 16);
   left_speed = toSpeed(left);
-  right_speed = toSpeed(right);
-  Serial.print(left_speed);
-  Serial.print(" ");
-  Serial.println(right_speed);
- 
+  right_speed = toSpeed(right); 
 }
 
 int toSpeed(long rfIn){
